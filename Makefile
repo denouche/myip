@@ -8,7 +8,7 @@ release:
 update: pull stop start
 
 start:
-	docker run --rm -it --name myip -p 127.0.0.1:8089:80 denouche/myip
+	docker run -d --name myip -p 127.0.0.1:8089:80 denouche/myip
 
 stop:
 	docker stop myip
