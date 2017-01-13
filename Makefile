@@ -5,9 +5,15 @@ help:
 release:
 	docker build -t denouche/myip .
 
-run:
-	docker pull denouche/myip
+update: pull stop start
+
+start:
+	docker run --rm -it --name myip -p 127.0.0.1:8089:80 denouche/myip
+
+stop:
 	docker stop myip
 	docker rm myip
-	docker run --rm -it --name myip -p 127.0.0.1:8089:80 denouche/myip
+
+pull:
+	docker pull denouche/myip
 
